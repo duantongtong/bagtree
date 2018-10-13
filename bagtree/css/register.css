@@ -1,0 +1,196 @@
+/*css reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+a{
+	text-decoration: none;
+	cursor: pointer;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*rightcell*/
+body,html{
+	width : 100%;
+	height : 100%;
+}
+#rightcell{
+	width : 3%;
+	height : 100%;
+	background : black;
+	position: fixed;
+	right : 0;
+	top : 0;
+	cursor : pointer;
+	box-sizing : border-box;
+	padding-top : 34px;
+	text-align : center;
+	z-index: 10000;
+}
+#rightcell ul li a{
+	color : white;
+	font-size : 12px;
+	padding-top : 54px;
+	display: block;
+}
+#rightcell ul li:last-child a{
+	color : orange;
+}
+#rightcell ul li:nth-child(4) a{
+	color : red;
+	font-size : 14px;
+	width : 14px;
+	margin : 0 auto;
+	padding-bottom: 4px;
+}
+/*top*/
+#top{
+	width : 1263px;
+	height : 110px;
+	padding : 25px 0 10px 38px;
+	margin : 0 auto;
+	box-sizing : border-box;
+}
+/*main*/
+#main{
+	width : 1263px;
+	height : 627px;
+	background : #ededed;
+	padding : 25px 0 25px 38px;
+	margin : 0 auto;
+	box-sizing : border-box;
+}
+#main #left{
+	width : 656px;
+	height : 574px;
+	background: white;
+	border-image:url(../img/border.jpg) 0 100% 0 0 no-repeat;
+	box-sizing : border-box;
+	padding : 20px 0 0 20px;
+	float : left;
+}
+#main #left #re{
+	display : block;
+	width : 226px;
+	height : 65px;
+	background : url(../img/re_signbg.png) no-repeat 0 -203px;
+	margin-bottom : 34px;
+}
+#main #left p {
+	width :380px;
+	height : 45px;
+	font-size : 16px;
+	color : #4c4c4c;
+	text-align: right;
+	display: inline-block;
+	margin-bottom: 30px;
+}
+#main #left p input{
+	width : 274px;
+	height : 43px;
+	border-radius: 3px;
+	border : none;
+	border : 1px solid #bfbdbf;
+	font-size : 100%;
+}
+#main #left #hello{
+	width : 178px;
+	height : 40px;
+	background: url(../img/re_signbg.png) no-repeat 0 -270px;
+	margin-top : 20px;
+	display: block;
+	margin-left : 110px;
+	border: none;
+}
+#main #left span{
+	font-size : 12px;
+	color :red;
+}
+#main #main8{
+	width : 564px;
+	height :574px;
+	background: white;
+	float : left;
+	box-sizing: border-box;
+	padding : 120px 0 0 70px;
+	position : relative;
+}
+#main #main8 a{
+	font-size: 14px;
+	color : #bf2300;
+}
+#main #main8 #last{
+	width : 149px;
+	height : 40px;
+	border : none;
+	background : url(../img/re_signbg.png) no-repeat 0 -100px;
+	display: block;
+	margin : 15px 0 50px 0;
+}
+#main #main8  #main5{
+	width : 400px;
+	height : 160px;
+    box-sizing : border-box;
+}
+#main #main8  #main5 h3{
+	font-size : 14px;
+    color : #945b4e;
+}
+#main #main8  #main5 .main6{
+	display: block;
+	width : 200px;
+	height : 24px;
+	background : url(../img/re_signbg.png) no-repeat 0 -168px;
+	margin : 11px 0;
+	float : left;
+}
+#main #main8  #main5 a{
+	font-size : 12px;
+	color : black;
+	padding-right : 4px;
+}
+#bottom {
+	width : 1263px;
+	height : 70px;
+	line-height : 70px;
+	text-align : center;
+	margin : 0 auto;
+	font-size : 12px;
+}

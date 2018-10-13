@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="../css/good.css">
+	</head>
+	<body>
+		<!-- 小图结构 -->
+    <div class="small">
+        <!-- 神秘遮罩层 -->
+        <div class="wrap"></div>
+        <!-- 神秘遮罩层 -->
+        <img src="../img/01.jpg" class="opacity-img" alt="">
+        <!-- 灰色的小框 -->
+        <span class="grayBox"></span>
+    </div>
+	<div id = "dtt">
+		<ul id = "tt">
+			<li class="active" style = "background-image: url(../img/01.jpg); background-size: 100px 100px;"></li>
+			<li style = "background-image: url(../img/02.jpg); background-size: 100px 100px;"></li>
+			<li style = "background-image: url(../img/03.jpg); background-size: 100px 100px;"></li>
+			<li style = "background-image: url(../img/04.jpg); background-size: 100px 100px;"></li>
+			<li style = "background-image: url(../img/05.jpg); background-size: 100px 100px;"></li>
+		</ul>
+	</div>
+    <!-- 大图结构 -->
+    <div class="big">
+        <img src="../img/01.jpg" alt="">
+    </div>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <script type="text/javascript" src = "../js/jquery.mousewheel.js"></script>
+	 <script>
+		 function magnifying(){
+			 
+	    }
+		 $.extend(magnifying.prototype,{                  //1.构造函数中方法的定义
+			init : function (){                          //2.构造函数中元素的获取不要用变量方式(采用对象的属性方式)
+				//获取元素
+				this.$small = $(".small");
+				this.$veil = $(".wrap");
+				this.$grayBox = $(".grayBox");
+				this.$bigbox = $(".big");
+				this.$smallimg = $(".small img");
+				this.$bigimg = $(".big img");
+// 			    this.$dtt = $("#dtt");
+// 				this.$tt = $("#tt");
+// 				this.$lis = $("#tt li");
+				//this.index = 0;
+				//重新计算比例
+                this.cdw = this.$bigbox.width() / this.$grayBox.width();
+				this.cdh = this.$bigbox.height() / this.$grayBox.height();
+				//console.log(cdw , cdh)
+				this.$bigimg.css({
+					width : this.$small.width() * this.cdw,
+					height : this.$small.height() * this.cdh
+				})
+				//console.log()
+				this.handleEvent();
+
+			},
+			handleEvent : function (){
+				this.$small.stop().on("mouseenter",function (){
+					this.enterbox();
+				}.bind(this))
+				this.$small.stop().on("mousemove",function (evt){
+					// console.log("鼠标移动")
+					this.movebox(evt)
+				}.bind(this))
+				this.$small.stop().on("mouseleave",function (){
+					//console.log("鼠标划出")
+					this.leavebox()
+				}.bind(this))	
+				//重大错误   -----   滚轮事件的触发方式
+				this.$small.stop().mousewheel($.proxy(this.boxScale,this))
+			},
+			enterbox : function (){
+				this.$smallimg.css({
+					opacity : 0.3,
+				})
+				this.$grayBox.fadeIn();
+				this.$bigbox.fadeIn();
+			},
+			leavebox : function (){
+				this.$grayBox.fadeOut();
+				this.$bigbox.fadeOut();
+				this.$smallimg.css({
+					opacity : 1,
+				})
+			},
+			movebox : function (evt){
+				var e = evt || window.event;
+				//错误   ----  滑块的坐标位置没有改变
+				//重大错误  -----   错误原因:e.offsetX后加了单位,导致边界检测无法进行
+				var uleft = e.offsetX ;
+				var utop = e.offsetY ;
+                // console.log(e.offsetX)
+				//console.log(this.$grayBox.position().left)
+				this.boxpos({
+					left : uleft - this.$grayBox.width() / 2,
+					top : utop - this.$grayBox.height() / 2
+				});
+				//console.log(uleft , utop)
+			},
+			//错误   -----   无定位功能
+			boxpos : function (obj){
+				var maxwi = this.$small.width() - this.$grayBox.width();
+				obj.left =  obj.left <= 0 ? 0 : obj.left;
+				obj.left =  obj.left >= maxwi ? maxwi : obj.left;
+				var maxhei =  this.$small.height() - this.$grayBox.height();
+				obj.top = obj.top <= 0 ? 0 : obj.top;
+				obj.top = obj.top >= maxhei ? maxhei : obj.top;
+				//console.log(obj.left)
+				this.$grayBox.css({
+					left : obj.left,
+					top : obj.top,
+					//错误   ------   由于background-position : 0 0 两个数值之间含有空行,因此px后面应空一格
+					
+				//	backgroundPosition:-pos.left+"px "+ -pos.top + "px"
+
+				})
+				this.$grayBox.css({
+					backgroundPosition : -obj.left + "px " + -obj.top + "px",		
+				})
+				//console.log(this.$grayBox.position().left)
+				//比例问题
+				var bigyidongw = this.$bigimg.width() - this.$bigbox.width();
+				var bigyidongh = this.$bigimg.height() - this.$bigbox.height();
+				//var smallbl = parseInt(this.$grayBox.width() / maxwi * 100) / 100;
+				//var bigbl = this.$bigbox.width() / bigyidong;
+				//var smallbig = this.$grayBox.width() / this.$bigbox.width();
+				//console.log(bigyidong,smallbl,bigbl,smallbig)
+				var ydblw = parseInt(obj.left / maxwi * 100) / 100;
+				var ydblh = parseInt(obj.top / maxhei * 100) / 100;
+				this.$bigimg.css({
+					left : ydblw * -bigyidongw,
+					top  : ydblh * -bigyidongh
+				})
+			},
+			boxScale:function(event,detal,detalX,detalY){
+
+				//置顶事件无生效
+				//$("document").scrollTop(0);
+				//console.log (detal)
+				if(detal >= 1 && this.$grayBox.width() <= 200){
+					this.$grayBox.css({
+						//错误  -----   没加双引号
+						width : "+=2",
+						height : "+=2",
+						left :"-=1",
+						top : "-=1"
+					}) }else if(detal <= 1 && this.$grayBox.width() >= 50){
+						this.$grayBox.css({
+							width :"-=2",
+							height :"-=2",
+							left :"+=1",
+							top : "+=1"
+						})
+					}
+					this.cdw = this.$bigbox.width() / this.$grayBox.width();
+					this.cdh = this.$bigbox.height() / this.$grayBox.height();
+					//console.log(cdw , cdh)
+					this.$bigimg.css({
+						width : this.$small.width() * this.cdw,
+						height : this.$small.height() * this.cdh
+					})
+					this.boxpos({
+						left : this.$grayBox.position().left,
+						top : this.$grayBox.position().top,
+					})
+					return 0;
+			},
+		 })
+		 new magnifying().init()
+		// console.log(index);
+		 function SmallMagnifying(){
+			 $("#tt li").mouseenter(function (event){
+				 //$(event.target).addClass("active")
+				 if(event.target == this){
+					 //console.log("true")
+					 $(this).addClass("active").siblings().removeClass("active")
+					 //console.log($(this).css('backgroundImage'));
+					 //syy = $(this).css('backgroundImage') ;				 
+					 //console.log(syy.substring("img"))
+					 
+				 }
+			 })
+			$("#tt li").mouseleave(function (event){
+				//$(event.target).addClass("active")
+				if(event.target == this){
+					//console.log("true")
+					$(this).removeClass("active")
+					//console.log($(this).css('backgroundImage'));
+					//syy = $(this).css('backgroundImage') ;				 
+					//console.log(syy.substring("img"))
+					
+				}
+			})
+			 
+			 $("#tt li").click(function (event){
+			 	//$(event.target).addClass("active")
+			 	if(event.target == this){
+			 		//console.log("true")
+			 		$(this).addClass("active1").siblings().removeClass("active1")
+			 		//console.log($(this).css('backgroundImage'));
+			 		syy = $(this).css('backgroundImage') ;				 
+			 		console.log(syy.substring("img"))
+					var list = syy.split("img/")
+			        //console.log(list)
+					var list1 = list[1].toString().split(".")
+					//console.log(list1[])
+					//var le = list1.length;
+				    //console.log(le)
+					index = list1[0];
+					//console.log(index);
+					//return window.index;
+			 		$(".small img").attr({
+						"src": "../img/" + index + ".jpg",
+					})
+                    $(".big img").attr({
+                    	"src" : "../img/" + index + ".jpg",
+                    })
+					$(".grayBox").css(
+						"background-image" , "url(../img/" + index + ".jpg)"
+					)
+			 	}
+			 })
+		 }
+		 $("#dtt").mouseenter(function (){
+			 new SmallMagnifying();
+			 //console.log(a)
+		 })
+	 </script>
+	</body>
+</html>

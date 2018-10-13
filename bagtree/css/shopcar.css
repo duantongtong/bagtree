@@ -1,0 +1,357 @@
+/*css reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+a{
+	text-decoration: none;
+	cursor: pointer;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*rightcell*/
+body,html{
+	width : 100%;
+	height : 100%;
+}
+#rightcell{
+	width : 3%;
+	height : 100%;
+	background : black;
+	position: fixed;
+	right : 0;
+	top : 0;
+	cursor : pointer;
+	box-sizing : border-box;
+	padding-top : 34px;
+	text-align : center;
+	z-index: 10000;
+}
+#rightcell ul li a{
+	color : white;
+	font-size : 12px;
+	padding-top : 54px;
+	display: block;
+}
+#rightcell ul li:last-child a{
+	color : orange;
+}
+#rightcell ul li:nth-child(4) a{
+	color : red;
+	font-size : 14px;
+	width : 14px;
+	margin : 0 auto;
+	padding-bottom: 4px;
+}
+/*topcell*/
+#top{
+	height : 34px;
+	background: #ededed;
+	width : 1263px;
+	margin : 0 auto;
+}
+#top #top1{
+	width : 94%;
+	height : 34px;
+	line-height : 34px;
+	font-size : 14px;
+	color : #8a6d51;
+	/*background: green;*/
+	margin : 0 auto;
+	box-sizing : border-box;
+	padding-left : 25px;
+}
+#top #top1 .jiantou{
+	display: inline-block;
+	width : 0 ;
+	border: 5px solid transparent;
+	border-top:5px solid #8A6D51; 
+	position : relative;
+	top : 3px;
+	right : 3px;
+}
+#top #top1 span:last-child{
+	display: block;
+	width : 115px;
+	height : 34px;
+	background : red;
+	float: right;
+	line-height: 34px;
+}
+#top #top1 span:last-child em{
+	background: url(../img/shopcar.png) no-repeat  0 0;
+	width : 25px;
+	height : 18px;
+	margin : 7px 10px 0 8px;
+	display : block;
+	float : left;
+}
+#top #top1 a:first-child{
+	color:#e51c5e;
+}
+#top #top1 a:first-child:hover{
+	color: red;
+}
+#top #top1 a{
+	padding-right : 28px;
+	color: #8a6d51;
+}
+#top #top1 a:last-child{
+	padding-right : 0;
+	color : white;
+}
+#top #top1 #top2{
+	float : right;
+}
+/*top*/
+#dtt{
+	width : 1263px;
+	height : 140px;
+	/*background: #000000;*/
+	margin : 0 auto;
+}
+#dtt #tt{
+	width : 1187px;
+	height : 140px;
+	/*background: #E51C5E;*/
+	margin : 0 auto;
+	box-sizing: border-box;
+	padding : 45px 10px 22px;
+}
+#dtt #tt #lefttt{
+	float : left;
+}
+#dtt #tt img{
+	margin-right : 55px;
+	float : left;
+}
+#dtt #tt span{
+	display: block;
+	width : 374px;
+	height : 56px;
+	float : left;
+	font-size:12px;
+	padding-top : 16px;
+}
+/*#dtt #tt p{
+	padding-top : 10px;
+}*/
+/*#dtt #tt input{
+	width : 290px;
+	height : 24px;
+	float : left;
+}*/
+/*#dtt #tt #lefttt button{
+	width : 30px;
+	height : 24px;
+	float : left;
+	background: black;
+}*/
+#dtt #tt #lefttt span p:first-child{
+	background: url(../img/tag.png) no-repeat 0 0 ;
+	width : 374px;
+	height : 33px;
+	margin-bottom: 5px;
+}
+#dtt #tt #lefttt span p:first-child input{
+	width :260px;
+	height : 24px;
+	margin-left : 30px;
+	border : none;
+	margin-top : 4px;
+}
+#dtt #tt #righttt{
+	background: url(../img/tag.png) no-repeat 0 -33px;
+	width : 264px;
+	height : 75px;
+	float : right;
+}
+/*nav*/
+#nav{
+	width : 1263px;
+	height : 34px;
+	background: black;
+	position : relative;
+	margin : 0 auto;
+}
+#nav #nav1{
+	width : 1187px;
+	height : 34px;
+	/*background: black;*/
+	margin : 0 auto;
+}
+#nav #nav1  a{
+	display: block;
+	height :34px;
+	line-height: 34px;
+	text-align: center;
+	color : white;
+	float : left;
+	box-sizing: border-box;
+	/*padding : 4px 0;*/
+}
+	#nav #nav1 span a{
+	width : 14%;	
+	border-right : 2px solid #333;
+}
+#nav #nav1 a.t:first-child{
+	background: #987b69;
+	position : relative;
+	width : 190px;
+}
+#nav #nav1 span a.vary{
+	background: #971313;
+}
+#nav #nav1  span a:hover{
+	background: #971313;
+}
+#nav #nav1 span a:last-child{
+	border : 0;	
+}
+/*listgoods*/
+#syy{
+	width : 1000px;
+	margin : auto;
+	background: #ccc;
+}
+#syy:after{
+	content: "";
+	display : block;
+	overflow: hidden;
+	clear : both;
+}
+#syy ul li.nice{
+	box-sizing: border-box;
+	padding : 10px;
+	width : 20%;
+	min-height : 200px;
+	float : left;
+}
+#syy ul li img.bet{
+	width : 100%;
+	height: 270px;
+}
+#syy ul li:hover{
+	cursor: pointer;
+}
+/*bottom*/
+#bottom1{
+	width : 1263px;
+	padding-left : 76px;
+	margin : 0 auto;
+	box-sizing : border-box;
+	background : #fbfbfb;
+	height : 445px;
+	overflow : hidden;
+}
+#bottom1 #bottomtop{
+	width : 100%;
+	height : 190px;
+	padding : 30px 0;
+	box-sizing : border-box;
+}
+#bottom1 #bottomtop dl{
+	width : 180px;
+	height : 130px;
+	border-right : 1px solid #e3e3e3;
+	padding-left : 30px;
+	float : left;
+}
+#bottom1 #bottomtop dl dt{
+	font-size : 14px;
+	font-weight : bold;
+	color : #a28573;
+	padding-bottom : 5px;
+}
+#bottom1 #bottomtop dl dd{
+	font-size : 12px;
+	color : #a28573;
+	padding-top :10px;
+	margin-left : 0;
+}
+#bottom1 #bottomtop #weixin{
+	float :left;
+	width : 266px;
+	height : 146px;
+} 
+#bottom1 #bottomtop #weixin img{
+	width : 100%;
+	height : 100%;
+	display:block;
+}
+#bottom1 #bottombtn {
+	width : 100%;
+	height : 204px;
+}
+#bottom1 #bottombtn ol{
+	font-size : 14px;
+	color : #3a3a3a;
+	padding : 20px 0;
+	margin : 0 auto;
+	width : 510px;
+}
+#bottom1 #bottombtn ol li{
+	padding-left : 13px;
+	width : 113px;
+	float :left;
+	list-style : none;
+	height : 16px;
+	border-right : 1px solid #3a3a3a;
+}
+#bottom1 #bottombtn p{
+	font-size:12px;
+	color :#707070;
+	text-align :center;
+	margin-bottom: 0;
+	height: 14px;
+	line-height: 14px;
+}
+#bottom1 #bottombtn #imges{
+	padding: 10px 0 26px;
+	text-align : center;
+}
+#bottom1 #bottombtn #gongan{
+	text-align : center;
+	width : 200px;
+	height : 20px;
+	line-height : 20px;
+	margin : 0 auto;
+	margin-bottom : 5px;
+}
